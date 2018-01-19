@@ -18,7 +18,7 @@ cat << "EOF"
 Brewing your configs!
 EOF
 
-git pull --rebase
+git pull
 
 read -p "Are you sure? " -n 1 -r
 echo    # (optional) move to a new line
