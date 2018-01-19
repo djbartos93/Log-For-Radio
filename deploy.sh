@@ -32,7 +32,7 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
   CWD="$(pwd)"
-  LSD="/etc/logstash"
+  LSD="/etc/logstash/conf.d/"
   cd "$CWD"/Logstash
   echo "copying logstash configs"
   cp *.conf $LSD
