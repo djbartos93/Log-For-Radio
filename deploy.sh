@@ -5,22 +5,29 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-
-cat << "EOF"
-             ((((
-            ((((
-             ))))
-          _ .---.
-         ( |`---'|
-          \|     |
-          : .___, :
-           `-----'
-Brewing your configs!
+read -p "Would yuo like to pull changes from github before updating your config files? this will remove any local changes!" -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  cat << "EOF"
+               ((((
+              ((((
+               ))))
+            _ .---.
+           ( |`---'|
+            \|     |
+            : .___, :
+             `-----'
+  Brewing your configs!
 EOF
-
+git stash
 git pull
+fi
 
-read -p "Are you sure? " -n 1 -r
+
+
+
+read -p "Are you sure you want to update your configs?? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
